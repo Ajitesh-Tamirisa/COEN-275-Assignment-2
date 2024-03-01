@@ -44,12 +44,9 @@ public:
     }
 };
 
-// Concrete observer classes
-
 class EmailObserver : public NewsObserver {
 public:
     void update(const NewsData& newsData) override {
-        // Send an email with the latest news
         cout << "Latest news article shared through email: " << newsData.getLatestArticle() << endl;
     }
 };
@@ -57,7 +54,6 @@ public:
 class SMSObserver : public NewsObserver {
 public:
     void update(const NewsData& newsData) override {
-        // Send an SMS with the latest news
         cout << "Latest news article shared through SMS: " << newsData.getLatestArticle() << endl;
     }
 };
@@ -65,7 +61,6 @@ public:
 class NewsAppObserver : public NewsObserver {
 public:
     void update(const NewsData& newsData) override {
-        // Display the latest news in the news app
         cout << "Displaying news in the app: " << newsData.getLatestArticle() << endl;
     }
 };
@@ -73,7 +68,6 @@ public:
 
 
 int main() {
-    // Create instances of concrete observers
     EmailObserver emailObserver;
     SMSObserver smsObserver;
     NewsAppObserver newsAppObserver;
@@ -83,7 +77,6 @@ int main() {
     newsData.addObserver(&smsObserver);
     newsData.addObserver(&newsAppObserver);
 
-    // Set the latest news
     newsData.setLatestNews("Redwood City-based Electronic Arts is laying off hundreds of workers. Read More about this...");
 
     newsData.removeObserver(&smsObserver);
