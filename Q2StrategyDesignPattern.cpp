@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
 
-// Strategy interface
 class PaymentStrategy {
 public:
     virtual ~PaymentStrategy() {}
